@@ -1,0 +1,81 @@
+{
+   "agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.101 Safari/537.36",
+   "context": {
+       "course_id": "edx/AN101/2014_T1",
+       "module": {
+           "display_name": "Multiple Choice Questions"
+       },
+       "org_id": "edx",
+       "user_id": 9999999
+   },
+   "event": {
+       "answers": {
+           "i4x-edx-AN101-problem-a0effb954cca4759994f1ac9e9434bf4_2_1": "yellow",
+           "i4x-edx-AN101-problem-a0effb954cca4759994f1ac9e9434bf4_4_1": [
+               "choice_0",
+               "choice_2"
+           ]
+       },
+       "attempts": 1,
+       "correct_map": {
+           "i4x-edx-AN101-problem-a0effb954cca4759994f1ac9e9434bf4_2_1": {
+               "correctness": "incorrect",
+               "hint": "",
+               "hintmode": null,
+               "msg": "",
+               "npoints": null,
+               "queuestate": null
+           },
+           "i4x-edx-AN101-problem-a0effb954cca4759994f1ac9e9434bf4_4_1": {
+               "correctness": "correct",
+               "hint": null,
+               "hintmode": null,
+               "msg": "",
+               "npoints": null,
+               "queuestate": null
+           }
+       },
+       "grade": 2,
+       "max_grade": 3,
+       "problem_id": "i4x://edx/AN101/problem/a0effb954cca4759994f1ac9e9434bf4",
+       "state": {
+           "correct_map": {},
+           "done": null,
+           "input_state": {
+               "i4x-edx-AN101-problem-a0effb954cca4759994f1ac9e9434bf4_2_1": {},
+               "i4x-edx-AN101-problem-a0effb954cca4759994f1ac9e9434bf4_4_1": {}
+           },
+           "seed": 1,
+           "student_answers": {}
+       },
+       "submission": {
+           "i4x-edx-AN101-problem-a0effb954cca4759994f1ac9e9434bf4_2_1": {
+               "answer": "yellow",
+               "correct": false,
+               "input_type": "optioninput",
+               "question": "What color is the open ocean on a sunny day?",
+               "response_type": "optionresponse",
+               "variant": ""
+           },
+           "i4x-edx-AN101-problem-a0effb954cca4759994f1ac9e9434bf4_4_1": {
+               "answer": [
+                   "a piano",
+                   "a guitar"
+               ],
+               "correct": true,
+               "input_type": "checkboxgroup",
+               "question": "Which of the following are musical instruments?",
+               "response_type": "choiceresponse",
+               "variant": ""
+           }
+       },
+       "success": "incorrect"
+   },
+   "event_source": "server",
+   "event_type": "problem_check",
+   "host": "precise64",
+   "ip": "NN.N.N.N",
+   "page": "x_module",
+   "time": "2014-03-03T16:19:05.584523+00:00",
+   "username": "AAAAAAAAAA"
+}
