@@ -81,7 +81,7 @@ public class Edxparser {
 	            //printing page
 	            System.out.println("Page:");
 	            System.out.println("	"+rootObject.get("page")+"\n");
-	            log.setTime(rootObject.get("page").toString());													//11th field
+	            log.setPage(rootObject.get("page").toString());													//11th field
 	
 	            //printing time
 	            System.out.println("Time:");
@@ -91,9 +91,9 @@ public class Edxparser {
 	            //converting into date format
 	            String time2=time.substring(0, 10);
 	            System.out.println("********"+time2+"***********");
-	            time2.concat(" ");
+	            time2=time2.concat(" ");
 	            System.out.println("********"+time2+"***********");
-	            time2.concat(time.substring(11,18));
+	            time2=time2.concat(time.substring(11,19));
 	            System.out.println("********"+time2+"***********");
 	            log.setTime(time2);																				//12th field
 	            
@@ -138,7 +138,7 @@ public class Edxparser {
             	//printing success
             	System.out.println("Success:");
             	System.out.println("	"+event.get("success"));
-            	//db.insertlogdata(log);
+            	db.insertlogdata(log);
             }
             db.getdata();
         } catch (JSONException e) {

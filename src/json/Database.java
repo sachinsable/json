@@ -59,19 +59,18 @@ public class Database
 			statement = connect.createStatement();
 			/*try
 			{*/
-			preparedStatement = connect.prepareStatement("insert into log values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			preparedStatement = connect.prepareStatement("insert into log values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			preparedStatement.setString(1, log.getCourse_id());
 			preparedStatement.setString(2, log.getModule());
 			preparedStatement.setString(3, log.getOrg_id());
 			preparedStatement.setInt(4, log.getUser_id());
 			preparedStatement.setString(5, log.getEvent());
 			preparedStatement.setString(6, log.getEvent_source());
-			preparedStatement.setString(7, log.getEvent_type());
-			preparedStatement.setString(8, log.getHost());
-			preparedStatement.setString(9, log.getIp());
-			preparedStatement.setString(10, log.getPage());
-			preparedStatement.setString(11, log.getTime());
-			preparedStatement.setString(12, log.getUsername());
+			preparedStatement.setString(7, log.getHost());
+			preparedStatement.setString(8, log.getIp());
+			preparedStatement.setString(9, log.getPage());
+			preparedStatement.setString(10, log.getTime());
+			preparedStatement.setString(11, log.getUsername());
 			preparedStatement.executeUpdate();
 			/*}
 			catch(Exception ex)
