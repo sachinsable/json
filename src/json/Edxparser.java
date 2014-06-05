@@ -9,6 +9,7 @@ import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import json.Database;
 
 public class Edxparser {
@@ -22,6 +23,7 @@ public class Edxparser {
     	
         String jsonStr = "";
         String jsonline[] = null;
+    	Database db = new Database();
 		try {
 			jsonStr = new Scanner(new File("/home/sachin/workspace/json/src/json/tracking.log")).useDelimiter("\\Z").next();
 			jsonline = jsonStr.split("\n");
@@ -34,7 +36,8 @@ public class Edxparser {
             for(int j=0;j<jsonline.length;j++)
             {
             	JSONObject rootObject = new JSONObject(jsonline[j]); // Parse the JSON to a JSONObject
-                
+                Log log = new Log();
+            	
             	System.out.println("*****Value of the j is "+j+"\n");
 	            //Printing agent
 	            System.out.println("Description of browser user was using:");
@@ -44,40 +47,62 @@ public class Edxparser {
 	            System.out.println("Context was:");
 	            JSONObject context = rootObject.getJSONObject("context");
 	            System.out.println("	course_id	:"+context.get("course_id"));
+	            log.setCourse_id(context.get("course_id").toString());											//2nd field
 	            System.out.println("	org_id		:"+context.get("org_id"));
+	            log.setOrg_id(context.get("org_id").toString());												//4th field
 	            System.out.println("	user_id		:"+context.get("user_id"));
+	            log.setUser_id((Integer)context.get("user_id"));												//5th field
 	
 	            System.out.println("	Module was:");
 	            JSONObject module = context.getJSONObject("module");
 	            System.out.println("		Display name	:"+module.get("display_name")+"\n");
+	            log.setModule(module.get("display_name").toString());											//3rd field
 	
 	            //printing event_source
 	            System.out.println("Event Source:");
 	            System.out.println("	"+rootObject.get("event_source")+"\n");
+	            log.setEvent_source(rootObject.get("event_source").toString());									//7th field
 	
 	            //printing event_type
 	            System.out.println("Event Type:");
 	            System.out.println("	"+rootObject.get("event_type")+"\n");
+	            log.setEvent(rootObject.get("event_type").toString());											//6th and 8th field
 	
 	            //printing host
 	            System.out.println("Host:");
 	            System.out.println("	"+rootObject.get("host")+"\n");
+	            log.setHost(rootObject.get("host").toString());													//9th field
 	
 	            //printing ip address
 	            System.out.println("IP:");
 	            System.out.println("	"+rootObject.get("ip")+"\n");
+	            log.setIp(rootObject.get("ip").toString());														//10th field
 	
 	            //printing page
 	            System.out.println("Page:");
 	            System.out.println("	"+rootObject.get("page")+"\n");
+	            log.setTime(rootObject.get("page").toString());													//11th field
 	
 	            //printing time
 	            System.out.println("Time:");
 	            System.out.println("	"+rootObject.get("time")+"\n");
-	
+	            String time = rootObject.get("time").toString();
+	            
+	            //converting into date format
+	            String time2=time.substring(0, 10);
+	            System.out.println("********"+time2+"***********");
+	            time2.concat(" ");
+	            System.out.println("********"+time2+"***********");
+	            time2.concat(time.substring(11,18));
+	            System.out.println("********"+time2+"***********");
+	            log.setTime(time2);																				//12th field
+	            
+	            
+	            
 	            //printing username
 	            System.out.println("username:");
 	            System.out.println("	"+rootObject.get("username")+"\n");
+	            log.setUsername(rootObject.get("username").toString());											//13th field
 	            
 	            //printing event
 	            JSONObject event = rootObject.getJSONObject("event");
@@ -113,9 +138,9 @@ public class Edxparser {
             	//printing success
             	System.out.println("Success:");
             	System.out.println("	"+event.get("success"));
+            	//db.insertlogdata(log);
             }
-            	Database db = new Database();
-            	db.getdata();
+            db.getdata();
         } catch (JSONException e) {
             // JSON Parsing error
             e.printStackTrace();
