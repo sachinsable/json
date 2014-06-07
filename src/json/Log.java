@@ -1,8 +1,20 @@
 package json;
 
 public class Log {
-	private String course_id,module,org_id,event,event_source,event_type,host,ip,page,time,username;
+	private String course_id,module,org_id,event_type,event,event_source,host,ip,page,time,username;
 	private int user_id;
+	public String getEvent() {
+		return event;
+	}
+	public void setEvent(String event) {
+		this.event = event;
+	}
+	public String getEvent_type() {
+		return event_type;
+	}
+	public void setEvent_type(String event_type) {
+		this.event_type = event_type;
+	}
 	public String getCourse_id() {
 		return course_id;
 	}
@@ -20,12 +32,6 @@ public class Log {
 	}
 	public void setOrg_id(String org_id) {
 		this.org_id = org_id;
-	}
-	public String getEvent() {
-		return event;
-	}
-	public void setEvent(String event) {
-		this.event = event;
 	}
 	public String getEvent_source() {
 		return event_source;
