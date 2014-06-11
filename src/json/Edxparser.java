@@ -71,6 +71,15 @@ public class Edxparser {
 	            log.setTime(time2);																				//12th field
 	            log.setUsername(rootObject.get("username").toString());											//13th field
 	            log.setEvent(rootObject.get("event").toString());
+	            try
+	            {
+	            	log.setSession(rootObject.get("session").toString());
+	            }
+	            catch(Exception e)
+	            {
+	            	log.setSession("");
+	            }
+	            
             	db.insertlogdata(log);
             }
             //db.getdata();

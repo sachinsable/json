@@ -64,7 +64,7 @@ public class Database
 			statement = connect.createStatement();
 			/*try
 			{*/
-			preparedStatement = connect.prepareStatement("insert into log values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			preparedStatement = connect.prepareStatement("insert into log values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			preparedStatement.setString(1, log.getCourse_id());
 			preparedStatement.setString(2, log.getOrg_id());
 			preparedStatement.setInt(3, log.getUser_id());
@@ -75,8 +75,9 @@ public class Database
 			preparedStatement.setString(8, log.getPage());
 			preparedStatement.setString(9, log.getTime());
 			preparedStatement.setString(10, log.getUsername());
+			preparedStatement.setString(11, log.getSession());
 			preparedStatement.executeUpdate();
-			
+			/*
 			preparedStatement = connect.prepareStatement("select max(id) from log");
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
@@ -190,14 +191,16 @@ public class Database
 	            		}
 	            		
 	            		System.out.println("problem checking");
-	                	preparedStatement = connect.prepareStatement("insert into problem_check_server values (?,?,?,?,?,?,?)");
+	                	preparedStatement = connect.prepareStatement("insert into problem_check_server values (?,?,?,?,?,?,?,?,?)");
 	    	        	preparedStatement.setInt(1, log_id);
 	    	        	preparedStatement.setString(2, key);
 	    	        	preparedStatement.setInt(3, hint);
 	    	        	preparedStatement.setString(4, correctness.get("hintmode").toString());
 	    	        	preparedStatement.setString(5, correctness.get("correctness").toString());
-	    	        	preparedStatement.setString(6, submittedproblem.get("response_type").toString());
-	    	        	preparedStatement.setString(7, submittedproblem.get("input_type").toString());
+	    	        	preparedStatement.setInt(6, Integer.parseInt(eventObject.get("grade").toString()));
+	    	        	preparedStatement.setInt(7, Integer.parseInt(eventObject.get("max_grade").toString()));
+	    	        	preparedStatement.setString(8, submittedproblem.get("response_type").toString());
+	    	        	preparedStatement.setString(9, submittedproblem.get("input_type").toString());
 	    	        	preparedStatement.executeUpdate();
 	            	}
             	}

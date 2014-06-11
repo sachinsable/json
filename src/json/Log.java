@@ -1,8 +1,14 @@
 package json;
 
 public class Log {
-	private String course_id,module,org_id,event_type,event,event_source,host,ip,page,time,username;
+	private String course_id,module,org_id,event_type,event,event_source,host,ip,page,time,username,session;
 	private int user_id;
+	public String getSession() {
+		return session;
+	}
+	public void setSession(String session) {
+		this.session = session;
+	}
 	public String getEvent() {
 		return event;
 	}
